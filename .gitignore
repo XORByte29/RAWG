@@ -1,0 +1,33 @@
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+/localMavenRepository
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+build/
+.gradle/
+.idea
+.idea/
+.idea/workspace.xml
+.metadata/
+.metadata
+*.iml
+*.log
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+.classpath
+.project
