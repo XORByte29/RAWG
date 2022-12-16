@@ -14,10 +14,7 @@ import kotlin.coroutines.CoroutineContext
 @HiltViewModel
 class FavoriteViewModel @Inject constructor(
     private val repository: RawgRepository
-) : BaseViewModel<FavoriteContract.Event, FavoriteContract.State, FavoriteContract.Effect>(), CoroutineScope {
-
-    override val coroutineContext: CoroutineContext
-        get() = Job() + Dispatchers.IO
+) : BaseViewModel<FavoriteContract.Event, FavoriteContract.State, FavoriteContract.Effect>() {
 
     override fun setInitialState(): FavoriteContract.State {
         return FavoriteContract.State(
@@ -40,8 +37,8 @@ class FavoriteViewModel @Inject constructor(
         }
     }
 
-    fun getGames() {
-        viewModelScope.launch(coroutineContext) {
+    private fun getGames() {
+        viewModelScope.launch {
             setState {
                 copy(isLoading = true)
             }
@@ -57,7 +54,6 @@ class FavoriteViewModel @Inject constructor(
                     )
                 }
             } catch (e: Exception) {
-                val a = e.localizedMessage
                 setState {
                     copy(isError = true, isLoading = false)
                 }

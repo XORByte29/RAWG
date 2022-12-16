@@ -15,10 +15,7 @@ import kotlin.coroutines.CoroutineContext
 @HiltViewModel
 class DetailViewModel @Inject constructor(
     private val repository: RawgRepository,
-) : BaseViewModel<DetailContract.Event, DetailContract.State, DetailContract.Effect>(), CoroutineScope {
-
-    override val coroutineContext: CoroutineContext
-        get() = Job() + Dispatchers.IO
+) : BaseViewModel<DetailContract.Event, DetailContract.State, DetailContract.Effect>() {
 
     override fun setInitialState(): DetailContract.State {
         return DetailContract.State(
@@ -50,7 +47,7 @@ class DetailViewModel @Inject constructor(
     }
 
     private fun getGame(gameId: Int) {
-        viewModelScope.launch(coroutineContext) {
+        viewModelScope.launch {
             setState {
                 copy(isLoading = true)
             }
@@ -67,7 +64,6 @@ class DetailViewModel @Inject constructor(
                     )
                 }
             } catch (e: Exception) {
-                val a = e.localizedMessage
                 setState {
                     copy(isError = true, isLoading = false)
                 }
@@ -76,7 +72,7 @@ class DetailViewModel @Inject constructor(
     }
 
     private fun saveToFavorite(game: GameDataModel) {
-        viewModelScope.launch(coroutineContext) {
+        viewModelScope.launch {
             try {
                 val isSuccess = repository.saveToFavorite(game)
                 setState {
@@ -102,7 +98,7 @@ class DetailViewModel @Inject constructor(
     }
 
     private fun removeFromFavorite(game: GameDataModel) {
-        viewModelScope.launch(coroutineContext) {
+        viewModelScope.launch {
             try {
                 val isSuccess = repository.removeFromFavorite(game)
                 setState {
@@ -128,9 +124,9 @@ class DetailViewModel @Inject constructor(
     }
 
     companion object {
-        private const val MESSAGE_SUCCESS_SAVE_TO_FAVORITE = "MESSAGE_SUCCESS_SAVE_TO_FAVORITE"
-        private const val MESSAGE_FAILED_SAVE_TO_FAVORITE = "MESSAGE_FAILED_SAVE_TO_FAVORITE"
-        private const val MESSAGE_SUCCESS_REMOVE_FROM_FAVORITE = "MESSAGE_SUCCESS_REMOVE_FROM_FAVORITE"
-        private const val MESSAGE_FAILED_REMOVE_FROM_FAVORITE = "MESSAGE_FAILED_REMOVE_FROM_FAVORITE"
+        private const val MESSAGE_SUCCESS_SAVE_TO_FAVORITE = "Success add game into favorite"
+        private const val MESSAGE_FAILED_SAVE_TO_FAVORITE = "Failed add game into favorite"
+        private const val MESSAGE_SUCCESS_REMOVE_FROM_FAVORITE = "Failed remove game from favorite"
+        private const val MESSAGE_FAILED_REMOVE_FROM_FAVORITE = "Failed remove game from favorite"
     }
 }

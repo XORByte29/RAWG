@@ -34,6 +34,7 @@ dependencies {
     implementRoom()
 
     implementation(Dependencies.Android.constraintLayout)
+    implementation(Dependencies.Android.pagging)
     implementation(Dependencies.ThirdParty.glideCompose)
 
     addModule(Libraries.network)

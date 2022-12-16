@@ -5,6 +5,7 @@ import Dependencies.implementHilt
 import Dependencies.implementLifecycle
 import Dependencies.implementNavigation
 import Dependencies.implementNetworkCore
+import Dependencies.implementRoom
 import Dependencies.implementTest
 
 plugins {

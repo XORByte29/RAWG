@@ -34,7 +34,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getGames(keyword: String = "") {
+    private fun getGames(keyword: String = "") {
         viewModelScope.launch {
             setState {
                 copy(games = null, isLoading = true)
