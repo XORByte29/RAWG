@@ -126,7 +126,7 @@ class DetailViewModel @Inject constructor(
     companion object {
         private const val MESSAGE_SUCCESS_SAVE_TO_FAVORITE = "Success add game into favorite"
         private const val MESSAGE_FAILED_SAVE_TO_FAVORITE = "Failed add game into favorite"
-        private const val MESSAGE_SUCCESS_REMOVE_FROM_FAVORITE = "Failed remove game from favorite"
+        private const val MESSAGE_SUCCESS_REMOVE_FROM_FAVORITE = "Success remove game from favorite"
         private const val MESSAGE_FAILED_REMOVE_FROM_FAVORITE = "Failed remove game from favorite"
     }
 }
