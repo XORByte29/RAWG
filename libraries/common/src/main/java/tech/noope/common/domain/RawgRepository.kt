@@ -16,7 +16,7 @@ interface RawgRepository {
 
     suspend fun getFavoriteGames(): List<GameDataModel>
 
-    suspend fun getFavoriteGame(id: Int): GameDataModel
+    suspend fun getFavoriteGame(id: Int): GameDataModel?
 
     suspend fun saveToFavorite(
         game: GameDataModel

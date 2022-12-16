@@ -160,11 +160,11 @@ private fun GameInfo(
     game: GameDataModel
 ) {
     val publisher = when {
-        game.publishers.isNotEmpty() -> {
-            game.publishers.first().name
+        game.publishers?.isNotEmpty() == true -> {
+            game.publishers?.first()?.name
         }
-        game.developers.isNotEmpty() -> {
-            game.developers.first().name
+        game.developers?.isNotEmpty() == true -> {
+            game.developers?.first()?.name
         }
         else -> null
     }
@@ -186,7 +186,7 @@ private fun GameInfo(
         Spacer(modifier = Modifier.padding(vertical = 2.dp))
 
         Text(
-            text = game.name,
+            text = game.name.toString(),
             style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.primary,
             fontWeight = FontWeight.Black,
@@ -228,7 +228,7 @@ private fun GameInfo(
             Spacer(modifier = Modifier.padding(horizontal = 2.dp))
 
             Text(
-                text = "${game.playtime.toInt()} Played",
+                text = "${game.playtime?.toInt()} Played",
                 style = MaterialTheme.typography.bodySmall,
             )
         }
@@ -236,7 +236,7 @@ private fun GameInfo(
         Spacer(modifier = Modifier.padding(vertical = 16.dp))
 
         Text(
-            text = game.description,
+            text = game.description.toString(),
             Modifier.fillMaxWidth()
         )
 

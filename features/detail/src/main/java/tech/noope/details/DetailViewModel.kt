@@ -55,6 +55,7 @@ class DetailViewModel @Inject constructor(
             try {
                 val response = repository.getGame(gameId)
                 val favoriteGame = repository.getFavoriteGame(gameId)
+
                 setState {
                     copy(
                         game = response,

@@ -77,7 +77,7 @@ fun GameCard(
                     }
             ) {
                 Text(
-                    text = game.name,
+                    text = game.name.toString(),
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.Black,
