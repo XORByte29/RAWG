@@ -16,7 +16,7 @@ A Sample Game list application that used api from [RAWG.IO](https://rawg.io)
 * Compose
 * MVI
 * Hilt
-* Navigation
+* Navigation (mutli module support)
 * Paging
 
 ---
